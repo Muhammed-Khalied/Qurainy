@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-// ignore: must_be_immutable
-class QurainTab extends StatelessWidget {
+// ignore: must_be_immutable, camel_case_types
+class Qurain_Tab_Like_Design_Figma extends StatelessWidget {
   static const String routeName = "QurainTab";
   List<String> suraNames = [
     "الفاتحه",
@@ -120,6 +120,7 @@ class QurainTab extends StatelessWidget {
     "الفلق",
     "الناس"
   ];
+
   List<int> versesNumber = [
     7,
     286,
@@ -237,7 +238,7 @@ class QurainTab extends StatelessWidget {
     6
   ];
 
-  QurainTab({super.key});
+  Qurain_Tab_Like_Design_Figma({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -326,65 +327,124 @@ class QurainTab extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: ListView.separated(
+                        child: SizedBox(
+                            height: 393.h,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  ListView.separated(   shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
                                 separatorBuilder: (context, index) => Divider(
                                       color: const Color(0xffB7935F),
                                       thickness: 2.sp,
                                     ),
-                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: versesNumber.length,
                                 itemBuilder: (context, index) {
-                                  return Center(
-                                    child: Text(
-                                      versesNumber[index].toString(),
-                                      style: TextStyle(
-                                          fontSize: 22.sp,
-                                          fontWeight: FontWeight.w400,
-                                          fontFamily: "ScheherazadeNew"),
-                                    ),
+                                  return Text(
+                                    textAlign: TextAlign.center,
+                                    versesNumber[index].toString(),
+                                    style: TextStyle(
+                                        fontSize: 22.sp,
+                                        fontWeight: FontWeight.w400,
+                                        fontFamily: "ScheherazadeNew"),
                                   );
                                 }),
-                          ),
-                        ],
-                      ),
-                    ),
+                                ],
+                              ),
+                            ))),
                     VerticalDivider(
                       color: const Color(0xffB7935F),
                       thickness: 2.8.sp, //thickness of divier line
                       width: 3.w, //width space of divider
                     ),
                     Expanded(
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: ListView.separated(
-                                separatorBuilder: (context, index) => Divider(
-                                      color: const Color(0xffB7935F),
-                                      thickness: 2.sp,
-                                    ),
-                                physics: const NeverScrollableScrollPhysics(),
-                                itemCount: suraNames.length,
-                                itemBuilder: (context, index) {
-                                  return Center(
-                                    child: Text(
+                      child: SizedBox(
+                        height: 393.h,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              ListView.separated(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  separatorBuilder: (context, index) => Divider(
+                                        color: const Color(0xffB7935F),
+                                        thickness: 2.sp,
+                                      ),
+                                  itemCount: suraNames.length,
+                                  itemBuilder: (context, index) {
+                                    return Text(
+                                      textAlign: TextAlign.center,
                                       suraNames[index],
                                       style: TextStyle(
                                           fontSize: 22.sp,
                                           fontWeight: FontWeight.w400,
                                           fontFamily: "ScheherazadeNew"),
+                                    );
+                                  }),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                    /*
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: ListView.separated(
+                                // shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                separatorBuilder: (context, index) => Divider(
+                                      color: const Color(0xffB7935F),
+                                      thickness: 2.sp,
                                     ),
+                                itemCount: suraNames.length,
+                                itemBuilder: (context, index) {
+                                  return Text(
+                                    textAlign: TextAlign.center,
+                                    suraNames[index],
+                                    style: TextStyle(
+                                        fontSize: 22.sp,
+                                        fontWeight: FontWeight.w400,
+                                        fontFamily: "ScheherazadeNew"),
                                   );
                                 }),
                           ),
                         ],
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
               )
+
+              /*
+              SizedBox(
+                height: 393.h,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ListView.separated(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          separatorBuilder: (context, index) => Divider(
+                                color: const Color(0xffB7935F),
+                                thickness: 2.sp,
+                              ),
+                          itemCount: suraNames.length,
+                          itemBuilder: (context, index) {
+                            return Text(
+                              textAlign: TextAlign.center,
+                              suraNames[index],
+                              style: TextStyle(
+                                  fontSize: 22.sp,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: "ScheherazadeNew"),
+                            );
+                          }),
+                    ],
+                  ),
+                ),
+              )*/
             ],
           ),
         ));

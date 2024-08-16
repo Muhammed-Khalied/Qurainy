@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qurainy/home.dart';
+import 'package:qurainy/ui/home/home.dart';
+import 'package:qurainy/ui/home/tabs/hadeth_tab/hadeth_details.dart';
+import 'package:qurainy/ui/home/tabs/qurain_tab/soura_details_screen.dart';
 
 void main() {
+ 
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
@@ -24,9 +28,9 @@ class _MyAppState extends State<MyApp> {
   }
 
   void initilization() async {
-    print("pausing...");
+    //print("pausing...");
     await Future.delayed(const Duration(seconds: 3));
-    print("unpausing");
+    //print("unpausing");
     FlutterNativeSplash.remove();
   }
 
@@ -43,9 +47,17 @@ class _MyAppState extends State<MyApp> {
             theme: ThemeData(
               useMaterial3: true,
             ),
-            initialRoute: QurainTab.routeName,
+            initialRoute: HomeScreen.routeName,
             routes: {
-              QurainTab.routeName: (context) => QurainTab(),
+              HomeScreen.routeName: (context) => const HomeScreen(),
+              SouraDetailsScreen.routeName: (context) =>
+                  const SouraDetailsScreen(),
+              HadethDetailsScreen.routeName: (context) =>
+                  const HadethDetailsScreen(),
+              // QurainTab.routeName: (context) => QurainTab(),
+              // HadethTab.routeName: (context) => const HadethTab(),
+              // TasbehTab.routeName: (context) => const TasbehTab(),
+              // RadioTab.routeName: (context) => const RadioTab(),
             },
           );
         });
